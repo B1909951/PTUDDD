@@ -31,7 +31,6 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
         Icons.shopping_cart,
       ),
       onPressed: () {
-        // ignore: avoid_print
         print('Go to cart screen');
       },
     );
