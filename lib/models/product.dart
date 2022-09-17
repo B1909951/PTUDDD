@@ -23,7 +23,7 @@ class Product {
     bool? isFavorite,
   }) {
     return Product(
-      id: id ?? this.title,
+      id: id ?? this.id,
       title: title ?? this.title,
       description: description ?? this.description,
       price: price ?? this.price,
