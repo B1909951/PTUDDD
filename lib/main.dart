@@ -1,10 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:myshop/ui/products/edit_product_screen.dart';
-
 import 'ui/screen.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
   await dotenv.load();
@@ -19,17 +18,21 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => AuthManager(),
-        ),
-        ChangeNotifierProvider(
-          create: (ctx) => ProductsManager(),
-        ),
-        ChangeNotifierProvider(
           create: (ctx) => CartManager(),
         ),
         ChangeNotifierProvider(
           create: (ctx) => OrdersManager(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => AuthManager(),
+        ),
+        ChangeNotifierProxyProvider<AuthManager, ProductsManager>(
+          create: (ctx) => ProductsManager(),
+          update: (ctx, authManager, productsManager) {
+            productsManager!.authToken = authManager.authToken;
+            return productsManager;
+          },
+        )
       ],
       child: Consumer<AuthManager>(builder: (ctx, authManager, child) {
         return MaterialApp(
@@ -40,7 +43,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSwatch(
               primarySwatch: Colors.blue,
             ).copyWith(
-              secondary: Colors.yellow,
+              secondary: Colors.green,
             ),
           ),
           home: authManager.isAuth
