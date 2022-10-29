@@ -128,6 +128,6 @@ class ProductsService extends FirebaseService {
     } catch (error) {
       print(error);
       return false;
-    }
+    } //
   }
 }

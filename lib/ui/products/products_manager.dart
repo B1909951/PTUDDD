@@ -60,6 +60,7 @@ class ProductsManager with ChangeNotifier {
     }
   }
 
+//
   int get itemCount {
     return _items.length;
   }
