@@ -1,13 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:myshop/ui/products/edit_product_screen.dart';
-// import 'package:hello/ui/products/user_products_screen.dart';
-// import 'ui/products/product_detail_screen.dart';
-// import 'ui/products/products_manager.dart';
-// import 'ui/products/product_overview_screen.dart';
-// import 'ui/products/user_products_screen.dart';
-// import 'ui/cart/cart_screen.dart';
-// import 'ui/orders/orders_screen.dart';
+
 import 'ui/screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
